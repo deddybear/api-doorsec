@@ -17,6 +17,10 @@ func ErrorHandler(writer http.ResponseWriter, request *http.Request, err interfa
 		return
 	}
 
+	if badRequestError(writer, request, err) {
+		return
+	}
+
 	internalServerError(writer, request, err)
 }
 
@@ -69,4 +73,25 @@ func internalServerError(writer http.ResponseWriter, request *http.Request, err 
 	}
 
 	helper.WriteToResponseBody(writer, webResponse)
+}
+
+func badRequestError(writer http.ResponseWriter, request *http.Request, err interface{}) bool {
+	exception, ok := err.(BadRequestError)
+
+	if ok {
+		writer.Header().Set("Content-Type", "application/json")
+		writer.WriteHeader(http.StatusBadRequest)
+
+		webResponse := response.Api{
+			Code:   http.StatusBadRequest,
+			Status: "Bad Request",
+			Data:   exception.Error,
+		}
+
+		helper.WriteToResponseBody(writer, webResponse)
+		return true
+	} else {
+		return false
+	}
+
 }

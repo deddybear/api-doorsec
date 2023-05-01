@@ -5,3 +5,9 @@ type Api struct {
 	Status string
 	Data   interface{}
 }
+
+type Login struct {
+	Code          int
+	Status, Token string
+	Data          interface{}
+}

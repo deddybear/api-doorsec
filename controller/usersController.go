@@ -1,8 +1,9 @@
 package controller
 
 import (
+	exception "api-iotdoor/exceptions"
 	"api-iotdoor/helper"
-	"api-iotdoor/model/request"
+	"api-iotdoor/model/request/users"
 	"api-iotdoor/model/response"
 	"api-iotdoor/services"
 	"github.com/julienschmidt/httprouter"
@@ -28,7 +29,7 @@ func NewUsersController(usersServices services.UsersService) UsersControllerInte
 }
 
 func (controller *UsersController) SignUp(res http.ResponseWriter, req *http.Request, params httprouter.Params) {
-	userCreateReq := request.UsersCreate{}
+	userCreateReq := users.UsersCreate{}
 
 	helper.ReadFromRequestBody(req, &userCreateReq)
 
@@ -45,6 +46,26 @@ func (controller *UsersController) SignUp(res http.ResponseWriter, req *http.Req
 
 func (controller *UsersController) SignIn(res http.ResponseWriter, req *http.Request, params httprouter.Params) {
 
+	userLoginReq := users.UsersLogin{}
+
+	helper.ReadFromRequestBody(req, &userLoginReq)
+
+	userResponse := controller.UsersService.SignIn(req.Context(), userLoginReq)
+
+	Token, err := helper.CreateTokenJwt(userResponse.Username, userResponse.Name)
+
+	if err != nil {
+		panic(exception.NewBadRequestError(err.Error()))
+	}
+
+	apiRes := response.Login{
+		Code:   200,
+		Token:  Token,
+		Status: "OK",
+		Data:   userResponse,
+	}
+
+	helper.WriteToResponseBody(res, apiRes)
 }
 
 func (controller *UsersController) FindById(res http.ResponseWriter, req *http.Request, params httprouter.Params) {
