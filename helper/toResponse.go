@@ -1,8 +1,8 @@
 package helper
 
 import (
-	"api-iotdoor/model/response"
-	"api-iotdoor/model/structure"
+	"api-doorsec/model/response"
+	"api-doorsec/model/structure"
 )
 
 //func ToCategoryResponse(category domain.Category) api.CategoryResponse {

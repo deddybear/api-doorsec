@@ -1,8 +1,8 @@
 package exception
 
 import (
-	"api-iotdoor/helper"
-	"api-iotdoor/model/response"
+	"api-doorsec/helper"
+	"api-doorsec/model/response"
 	"github.com/go-playground/validator/v10"
 	"net/http"
 )

@@ -1,11 +1,11 @@
 package controller
 
 import (
-	exception "api-iotdoor/exceptions"
-	"api-iotdoor/helper"
-	"api-iotdoor/model/request/users"
-	"api-iotdoor/model/response"
-	"api-iotdoor/services"
+	exception "api-doorsec/exceptions"
+	"api-doorsec/helper"
+	"api-doorsec/model/request/users"
+	"api-doorsec/model/response"
+	"api-doorsec/services"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 )

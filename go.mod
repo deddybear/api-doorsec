@@ -1,4 +1,4 @@
-module api-iotdoor
+module api-doorsec
 
 go 1.20
 

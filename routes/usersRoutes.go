@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"api-iotdoor/controller"
-	"api-iotdoor/repository"
-	"api-iotdoor/services"
+	"api-doorsec/controller"
+	"api-doorsec/repository"
+	"api-doorsec/services"
 	"database/sql"
 	"github.com/go-playground/validator/v10"
 	"github.com/julienschmidt/httprouter"

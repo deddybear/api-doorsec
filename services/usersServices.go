@@ -1,12 +1,12 @@
 package services
 
 import (
-	exception "api-iotdoor/exceptions"
-	"api-iotdoor/helper"
-	"api-iotdoor/model/request/users"
-	"api-iotdoor/model/response"
-	"api-iotdoor/model/structure"
-	"api-iotdoor/repository"
+	exception "api-doorsec/exceptions"
+	"api-doorsec/helper"
+	"api-doorsec/model/request/users"
+	"api-doorsec/model/response"
+	"api-doorsec/model/structure"
+	"api-doorsec/repository"
 	"context"
 	"database/sql"
 	"github.com/go-playground/validator/v10"

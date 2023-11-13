@@ -1,10 +1,10 @@
 package main
 
 import (
-	"api-iotdoor/app/config"
-	exception "api-iotdoor/exceptions"
-	"api-iotdoor/middleware"
-	"api-iotdoor/routes"
+	"api-doorsec/app/config"
+	exception "api-doorsec/exceptions"
+	"api-doorsec/middleware"
+	"api-doorsec/routes"
 	"fmt"
 	"github.com/go-playground/validator/v10"
 	_ "github.com/go-sql-driver/mysql"

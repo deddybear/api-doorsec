@@ -1,7 +1,7 @@
 package config
 
 import (
-	"api-iotdoor/helper"
+	"api-doorsec/helper"
 	"database/sql"
 	"time"
 )

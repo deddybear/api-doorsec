@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"api-iotdoor/helper"
-	"api-iotdoor/model/structure"
+	"api-doorsec/helper"
+	"api-doorsec/model/structure"
 	"context"
 	"crypto/sha256"
 	"database/sql"
