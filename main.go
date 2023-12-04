@@ -26,11 +26,11 @@ func main() {
 	handler := cors.Default().Handler(router)
 
 	server := http.Server{
-		Addr:    "localhost:80",
+		Addr:    "localhost:8080",
 		Handler: middleware.NewLogMiddleware(handler),
 		//Handler: middleware.NewAuthMiddleware(handler),
 	}
 
-	fmt.Println("Server dijalankan pada port 80")
+	fmt.Println("Server dijalankan pada port 8080")
 	log.Fatal(server.ListenAndServe())
 }
